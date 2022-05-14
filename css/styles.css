@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  height: 100vh;
+}
+
+img {
+  position: fixed;
+  width: 100%;
+  top: 0%;
+  transition: top 1s;
+}
+
+h1 {
+  font-family: "Audiowide", cursive;
+  width: fit-content;
+  background: linear-gradient(
+    to bottom,
+    #ebf1f6 0%,
+    #abd3ee 50%,
+    #859ee2 51%,
+    #d5ebfb 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2em;
+  transition: font-size 1s;
+  position: absolute;
+  text-transform: uppercase;
+  display: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  animation: textAnimation 5s ease-in-out 1s 1 alternate;
+}
+
+h1::after {
+  background: none;
+  content: attr(data-text);
+  left: 0;
+  position: absolute;
+  text-shadow: 1px -1px 0 rgba(255, 255, 255, 0.5),
+    3px 1px 3px rgba(255, 0, 255, 0.85), -3px -2px 3px rgba(0, 0, 255, 0.85),
+    1px -2px 0 rgba(255, 255, 255, 0.8);
+  z-index: -3;
+}
+
+.graph-container {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.graph {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(54, 226, 248, 0.5) 0%,
+      rgba(54, 226, 248, 0.5) 3px,
+      rgba(0, 0, 0, 0) 0px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(54, 226, 248, 0.5) 0%,
+      rgba(54, 226, 248, 0.5) 3px,
+      rgba(0, 0, 0, 0) 0px
+    );
+  background-size: 4em 2em, 4em 2em;
+  background-color: black;
+  height: 40em;
+  perspective: 1000px;
+  margin-top: 40em;
+  transform: perspective(600px) rotateX(48deg) scale(3);
+}
+
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
